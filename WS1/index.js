@@ -7,20 +7,31 @@ window.onload=()=>{
     //document.body.addEventListener("mousemove",(e)=>{console.log(e.clientX+" ; "+e.clientY)})
 
     //ej4.
-    creaPizarra();
     const pixeles=document.querySelectorAll("td");
-    pixeles.addEventListener()//SEGUIR POR AQUI
-};
+    
 
-function creaPizarra(){
-    document.write("<table border='solid' black>");
-    for(let i=0;i<100;i++){
-        document.write("<tr>")
-        for(let j=0;j<100;j++){
-            document.write("<td></td>")
+    pixeles.forEach(pixel => {
+    pixel.addEventListener("mouseover", (event) => {
+        if (event.ctrlKey) {
+            pixel.style.backgroundColor = "blue";   
+        }else if(event.shiftKey){
+            pixel.style.backgroundColor ="red"
         }
-        document.write("</tr>")
-    }
-    document.write("</table>");
-}
+        });
+    });
 
+    pixeles.forEach(pixel =>{
+        pixel.addEventListener("mouseover",(event)=>{
+            if(event.altKey){
+                pixel.style.backgroundColor="white";
+            } 
+        });
+    });
+    
+    const borrar=document.getElementById("borrar")
+    borrar.addEventListener("click",()=>{
+        pixeles.forEach(px => {
+            px.style.backgroundColor="white"
+        });
+    })
+}
