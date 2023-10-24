@@ -34,4 +34,34 @@ window.onload=()=>{
             px.style.backgroundColor="white"
         });
     })
+
+    //9
+    const contenedor=document.getElementById("contenedor");
+    const imagen=document.getElementById("icono");
+    var cordY;
+    var cordX;
+
+
+    pulsado=false;
+
+    contenedor.addEventListener("click",(e)=>{
+            pulsado=!pulsado
+            cordXresta=e.clientX;
+            cordYResta=e.clientY
+    })
+
+    contenedor.addEventListener("mousemove",(e)=>{
+        cordX=e.clientX;
+        cordY=e.clientY;
+        if(pulsado){
+            imagen.style.top=cordY-cordYResta+"px";
+            imagen.style.left=cordX-cordXresta+"px";
+        }
+    });
+
+
+
+
+
+    //10
 }

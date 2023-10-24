@@ -2,3 +2,10 @@
 table{
     border: solid black;
 }
+#contenedor{
+    position: relative;
+    height: 100px;
+}
+#icono{
+    position: absolute;
+}
