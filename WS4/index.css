@@ -1,0 +1,24 @@
+.oculto{
+    visibility: hidden;
+}
+.body{
+    display: flex;
+}
+
+.azul{
+    background-color: rgb(40, 164, 236);
+    width: 100px;
+}
+.links{
+    border: solid blue;
+    margin-right: 100px;
+    background-color: rgb(233, 233, 233);
+}
+
+.link{
+    text-decoration: none;
+}
+.main{
+    background-color: blanchedalmond;
+    height: 100vh;
+}
