@@ -5,7 +5,18 @@ window.onload=()=>{
 
     //ej2.
     //document.body.addEventListener("mousemove",(e)=>{console.log(e.clientX+" ; "+e.clientY)})
+    //ej3.
+    window.onload = function() {
+        var tiempoDeCarga = performance.now();
+        var bodyElement = document.querySelector('body');
 
+        function actualizarTiempoTranscurrido() {
+            var tiempoActual = performance.now();
+            var tiempoTranscurrido = tiempoActual - tiempoDeCarga;
+            bodyElement.innerHTML = "<h1>Tiempo transcurrido desde la carga de la página:</h1><p>" + tiempoTranscurrido.toFixed(2) + " ms</p>";
+        }
+        setInterval(actualizarTiempoTranscurrido, 100);
+    };
     //ej4.
     const pixeles=document.querySelectorAll("td");
     
