@@ -8,6 +8,15 @@ function validarMayuscula(parametro) {
   }
 
 /**
+ * Valida si tiene al menos una minuscula
+ * @param {*} parametro
+ * @return {*} 
+ */
+function validarMinuscula(parametro) {
+    return /[a-z]/.test(parametro);
+  }
+
+/**
  * Valida si tiene al menos uno de los siguientes caracteres [!@#$%^&]
  * @param {*} parametro
  * @return {*} 
@@ -53,5 +62,37 @@ function validarNumero(parametro) {
     return /\d/.test(parametro);
 }
 
+function validarNoEstaVacioNiTieneMasDe50Caracteres(texto) {
+    if (texto.trim() === '') {
+      return false;
+    }
+    if (texto.length > 50) {
+      return false;
+    }
+    return true;
+  }
   
+  function validarNumeroDeTelefono(telefono) {
+    // Saneamiento: eliminar caracteres no numéricos
+    telefono = telefono.replace(/\D/g, '');
   
+    if (telefono.length === 9) {
+      return true;
+    }
+  
+    return false; 
+  }
+  function validateConfirmPassword(pw,confirmPW){
+    if (pw===confirmPW){
+        return true;
+    }
+    return false;
+  }
+  
+  function validateEmail(email) {
+    // Expresión regular para validar un correo electrónico
+    const regex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+  
+    // Comprobar si el correo electrónico cumple con el formato válido
+    return regex.test(email);
+  }

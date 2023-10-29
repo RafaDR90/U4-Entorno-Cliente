@@ -9,33 +9,32 @@ const email = document.getElementById("email");
 const nombreUsuario = document.getElementById("nombreUsuario");
 const submitButton = document.getElementById("submit");
 const span=document.querySelector("span");
-var validado={};
+
 
 submitButton.addEventListener("click",(e)=>{
-    if(!aceptado){
+    let errores=0;
+    if(!validarLongitud(nombre.value)){
+        errores+=1;
+        nombre.style.borderColor="red";
+    }
+    if(!validarLongitud(nombreUsuario.value) && !validarCaracteresEspeciales(nombreUsuario.value)){
+        errores+=1;
+        nombreUsuario.style.borderColor="red";
+    }
+
+    if(errores!=0){
         e.preventDefault();
         span.innerText="Debes completar todos los campos requeridos";
     }
+        
 });
 
 nombre.addEventListener("focusout",(e)=>{
-    if(validarLongitud(e.target.value)){
-        validado["nombre"]=true
-        
-    }else{
-        nombre.style.borderColor="red";
-        validado["nombre"]=false;
-    }
+    (!validarLongitud(e.target.value)) ? e.target.style.borderColor="red" : e.target.style.borderColor="initial";
 });
 
 nombreUsuario.addEventListener("focusout",(e)=>{
-    if(validarLongitud(e.target.value) && validarCaracteresEspeciales(e.target.value)){
-        validado["nombre"]=true
-        
-    }else{
-        nombre.style.borderColor="red";
-        validado["nombre"]=false;
-    }
+    (validarLongitud(e.target.value) && validarCaracteresEspeciales(e.target.value)) ? e.target.style.borderColor="initial": e.target.style.borderColor="red";      
 })
 
 }
